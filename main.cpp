@@ -1,18 +1,12 @@
-#include "Int_large.h"
+#include "UserIF.h"
 
 int main(void)
 {
-	Int_large c, d;
+	BNT_CreateMachine BNTMachine;
 
-	Int_large a = 923;
-	Int_large b = 93465;
-	Int_large x = 0;
+	UserIF userIF(&BNTMachine);
 
-	c = x + b;
-	c.print();
+	userIF.mainMenu();
 
-	cout << endl;
-
-	d = b * x;
-	d.print();
+	return 0;
 }
