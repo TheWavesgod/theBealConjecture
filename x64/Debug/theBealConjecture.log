@@ -1,3 +1,3 @@
-﻿  UserIF.cpp
-D:\CppProject\theBealConjecture\UserIF.cpp(142): warning C4715: “UserIF::reactToInputMainMenu”: 不是所有的控件路径都返回值
+﻿  BNT_CreateMachine.cpp
+D:\CppProject\theBealConjecture\BNT_CreateMachine.cpp(229,10): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
   theBealConjecture.vcxproj -> D:\CppProject\theBealConjecture\x64\Debug\theBealConjecture.exe

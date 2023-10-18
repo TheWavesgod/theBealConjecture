@@ -2,8 +2,6 @@
 
 void UserIF::mainMenu()
 {
-	BNTMachine->createBNT();
-
 	int userInput;
 
 	initMainMenu();
@@ -163,10 +161,20 @@ void UserIF::answerQ3()
 
 void UserIF::answerQ4()
 {
+	setTextColor(BLUE);
+	cout << BCSystem << endl;
+	setTextColor(YELLOW);
+	BNTMachine->AnswerToQuestion4();
+	cout << "outputs to file completed";
+	cout << endl;
 }
 
 void UserIF::answerQ5()
 {
+	setTextColor(BLUE);
+	cout << BCSystem << endl;
+	setTextColor(YELLOW);
+	BNTMachine->AnswerToQuestion5();
 }
 
 void UserIF::answerQ6()

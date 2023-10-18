@@ -2,6 +2,7 @@
 
 #include "Int_large.h"
 
+#include <fstream>
 #include <cmath>
 #include <list>
 
@@ -52,6 +53,8 @@ private:
 
 private:
 	inline void printBNT(const BNT_num& num);
+
+	inline void writeBNT(const BNT_num& num, ofstream& ofs);
 
 	inline void insertBNTs(const BNT_num& bnt);
 

@@ -41,6 +41,76 @@ void BNT_CreateMachine::AnswerToQuestion2()
 	}
 }
 
+void BNT_CreateMachine::AnswerToQuestion3()
+{
+
+}
+
+void BNT_CreateMachine::AnswerToQuestion4()
+{
+	ofstream ofs;	
+	ofs.open("Answer4.txt", ios::out);
+
+	ofs << "Question 1: " << endl << endl;
+	int lastBNT = 0;
+	int times = 0;
+	for (const auto& n : BNTs)
+	{
+		if (n.BNT != lastBNT)
+		{
+			writeBNT(n, ofs);
+			++times;
+			lastBNT = n.BNT;
+		}
+		if (times >= 5)
+		{
+			break;
+		}
+	}
+
+	ofs << "Question 2: " << endl << endl;
+	lastBNT = 0;
+	times = 0;
+	for (const auto& n : BNTs)
+	{
+		if (isPrime(n.BNT))
+		{
+			if (n.BNT != lastBNT)
+			{
+				writeBNT(n, ofs);
+				++times;
+				lastBNT = n.BNT;
+			}
+		}
+		if (times >= 5)
+		{
+			break;
+		}
+	}
+}
+
+void BNT_CreateMachine::AnswerToQuestion5()
+{
+	int lastBNT = 0;
+	int times = 0;
+	for (const auto& n : BNTs)
+	{
+		if (isPrime(n.BNT) == false)
+		{
+			if (n.BNT != lastBNT)
+			{
+				printBNT(n);
+				++times;
+				lastBNT = n.BNT;
+			}
+		}
+		if (times >= 10)
+		{
+			break;
+		}
+	}
+}
+
 void BNT_CreateMachine::createBNT()
 {
 	int limitLeft = 20;
@@ -57,11 +127,37 @@ void BNT_CreateMachine::createBNT()
 					{	
 						for (int z = 3; z <= limitRight; ++z)
 						{
-							/*Int_large A1, B1, C1;
+							long long A1, B1, C1;
 							A1 = A;
 							B1 = B;
-							C1 = C;*/
-							long long A1, B1, C1;
+							C1 = C;
+							if (checkBealConjecture(A1, B1, C1, x, y, z) == true)
+							{
+								BNT_num tmp(A, B, C, x, y, z);
+								insertBNTs(tmp);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	limitLeft = 100;
+	limitRight = 30;
+	for (int A = 20; A <= limitLeft; ++A)
+	{
+		for (int B = A; B <= limitLeft; ++B)
+		{
+			for (int C = B; C <= limitLeft; ++C)
+			{
+				for (int x = 3; x <= limitRight; ++x)
+				{
+					for (int y = 3; y <= limitRight; ++y)
+					{
+						for (int z = 3; z <= limitRight; ++z)
+						{
+							Int_large A1, B1, C1;
 							A1 = A;
 							B1 = B;
 							C1 = C;
@@ -88,9 +184,17 @@ void BNT_CreateMachine::printBNTs()
 
 void BNT_CreateMachine::printBNT(const BNT_num& num)
 {
-	cout << num.BNT << ": " << num.A << " " << num.x << " ";
-	cout << num.B << " " << num.y << " " << num.C << " " << num.z;
+	cout << num.BNT << ": " << num.A << ", " << num.x << ", ";
+	cout << num.B << ", " << num.y << ", " << num.C << ", " << num.z;
 	cout << endl;
+}
+
+inline void BNT_CreateMachine::writeBNT(const BNT_num& num, ofstream& ofs)
+{
+	ofs << num.BNT << ": " << num.A << ", " << num.x << ", ";
+	ofs << num.B << ", " << num.y << ", " << num.C << ", " << num.z;
+	ofs << endl;
+	ofs << endl;
 }
 
 void BNT_CreateMachine::insertBNTs(const BNT_num& bnt)
