@@ -2,7 +2,7 @@
 
 void UserIF::mainMenu()
 {
-	int userInput;
+	string userInput;
 
 	initMainMenu();
 
@@ -14,7 +14,7 @@ void UserIF::mainMenu()
 		setTextColor(WHITE);
 		cin >> userInput;
 		cout << endl;
-		int flag = reactToInputMainMenu(userInput);
+		int flag = reactToInputMainMenu(handleInput(userInput));
 		if (flag == 0)
 		{
 			break;
@@ -83,6 +83,31 @@ void UserIF::setTextColor(text_color color)
 		break;
 	}
 	}
+}
+
+int UserIF::handleInput(string& input)
+{
+	if (input.compare("0") == 0)
+		return 0;
+	if (input.compare("1") == 0)
+		return 1;
+	if (input.compare("2") == 0)
+		return 2;
+	if (input.compare("3") == 0)
+		return 3;
+	if (input.compare("4") == 0)
+		return 4;
+	if (input.compare("5") == 0)
+		return 5;
+	if (input.compare("6") == 0)
+		return 6;
+	if (input.compare("7") == 0)
+		return 7;
+	if (input.compare("8") == 0)
+		return 8;
+	if (input.compare("9") == 0)
+		return 9;
+	return 10;
 }
 
 int UserIF::reactToInputMainMenu(const int& input)

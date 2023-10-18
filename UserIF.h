@@ -27,6 +27,8 @@ private:
 
 	void setTextColor(text_color color);
 
+	int handleInput(string& input);
+
 	int reactToInputMainMenu(const int& input);
 	void answerQ1();
 	void answerQ2();
