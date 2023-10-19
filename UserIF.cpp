@@ -215,6 +215,10 @@ void UserIF::answerQ5()
 
 void UserIF::answerQ6()
 {
+	setTextColor(BLUE);
+	cout << BCSystem << endl;
+	setTextColor(YELLOW);
+	BNTMachine->AnswerToQuestion6();
 }
 
 void UserIF::answerQ7()
@@ -250,4 +254,8 @@ void UserIF::answerQ7()
 
 void UserIF::answerQ8()
 {
+	setTextColor(BLUE);
+	cout << BCSystem << endl;
+	setTextColor(YELLOW);
+	BNTMachine->AnswerToQuestion8();
 }

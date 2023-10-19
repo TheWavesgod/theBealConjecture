@@ -128,6 +128,48 @@ void BNT_CreateMachine::AnswerToQuestion5()
 
 void BNT_CreateMachine::AnswerToQuestion6()
 {
+	cout << "The following formula satisfies the Beal's Conjecture: " << endl;
+	cout << "2^n + 2^n = 2^(n+1)" << endl;
+	cout << "After rearranging it as: (Here I use ABCxyz to represent the formula)" << endl;
+	cout << "A = 2^i, B = 2^j, C = 2, x = n/i, y = n/j, z = n+1" << endl;
+	cout << "So, we can express BNT as: 2^i + 2^j + 3 + n/i + n/j + n" << endl;
+	cout << "Since n must be divisible by both i and j, we take n as i * j * n, and BNT can be represented as: " << endl;
+	cout << "2^i + 2^j + 3 + (i + j + ij)n, n is a positive integer" << endl;
+	cout << "When i and j take values from 1 to 30, all square numbers can be represented by the formula above, which means they are all BNT" << endl;
+	cout << "I have stored square numbers from 1000 to 100000 in a vector, removed those that meet the formula, and below is the count of square numbers before and after removal:" << endl;
+
+	vector<int> squareNums;
+	for (int i = 32; power(i, 2) <= 100000; ++i)
+	{
+		squareNums.push_back(power(i, 2));
+	}
+	cout << squareNums.size();
+	
+	for (int x = 1; x < 30; ++x)
+	{
+		for (int y = 1; y < 30; ++y)
+		{
+			int frt = power(2, x) + power(2, y) + 3;
+			int bk = x + y + x * y;
+			if(squareNums.empty() != true)
+			{
+				auto itr = squareNums.begin();
+				while(itr!=squareNums.end())
+				{
+					if ((*itr - frt) % bk == 0)
+					{
+						squareNums.erase(itr);
+						itr = squareNums.begin();
+						continue;
+					}
+					++itr;
+				}
+
+			}
+		}
+	}
+
+	cout << " " << squareNums.size() << endl;
 
 }
 
@@ -162,7 +204,11 @@ void BNT_CreateMachine::AnswerToQuestion7(const int& min, const int& max)
 
 void BNT_CreateMachine::AnswerToQuestion8()
 {
-
+	cout << "When A, B, C are all greater than 2, the following formula can satisfy Beal's Conjecture: " << endl;
+	cout << "4^(3n+1) + 4^(3n+1) = 8^(2n+1)" << endl;
+	cout << "where BNT can be represented as 8n+19, n is a positive integer" << endl;
+	cout << "Therefore, in theory, as long as the value of n is sufficiently large, BNT can be arbitrarily large, making BNT equal to infinity.";
+	cout << endl;
 }
 
 void BNT_CreateMachine::createBNT()
@@ -197,7 +243,7 @@ void BNT_CreateMachine::createBNT()
 		}
 	}
 
-	/*limitLeft = 20;
+	limitLeft = 20;
 	limitRight = 100;
 	for (int A = 1; A <= limitLeft; ++A)
 	{
@@ -225,7 +271,7 @@ void BNT_CreateMachine::createBNT()
 				}
 			}
 		}
-	}*/
+	}
 }
 
 void BNT_CreateMachine::printBNTs()
