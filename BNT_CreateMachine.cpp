@@ -131,11 +131,11 @@ void BNT_CreateMachine::AnswerToQuestion6()
 	cout << "The following formula satisfies the Beal's Conjecture: " << endl;
 	cout << "2^n + 2^n = 2^(n+1)" << endl;
 	cout << "After rearranging it as: (Here I use ABCxyz to represent the formula)" << endl;
-	cout << "A = 2^i, B = 2^j, C = 2, x = n/i, y = n/j, z = n+1" << endl;
-	cout << "So, we can express BNT as: 2^i + 2^j + 3 + n/i + n/j + n" << endl;
-	cout << "Since n must be divisible by both i and j, we take n as i * j * n, and BNT can be represented as: " << endl;
-	cout << "2^i + 2^j + 3 + (i + j + ij)n, n is a positive integer" << endl;
-	cout << "When i and j take values from 1 to 30, all square numbers can be represented by the formula above, which means they are all BNT" << endl;
+	cout << "A = 2^i, B = 2^j, C = 2^k, x = n/i, y = n/j, z = (n+1)/k" << endl;
+	cout << "So, we can express BNT as: 2^i + 2^j +2^k + n/i + n/j + (n+1)/k" << endl;
+	cout << "Since n must be divisible by both i and j, we take n as i * j * n, then, take n as zn+z+d, and BNT can be represented as: " << endl;
+	cout << "2^i + 2^j + 2^k + ij + ik + jk + (i + j)d + (ijd + 1)/z + (ij + ik + jk)n, n is a positive integer, d is a integer that can make (ijd + 1)/z a integer" << endl;
+	cout << "When i and j take values from 1 to 15, k must be odd, all square numbers can be represented by the formula above, which means they are all BNT" << endl;
 	cout << "I have stored square numbers from 1000 to 100000 in a vector, removed those that meet the formula, and below is the count of square numbers before and after removal:" << endl;
 
 	vector<int> squareNums;
@@ -143,33 +143,41 @@ void BNT_CreateMachine::AnswerToQuestion6()
 	{
 		squareNums.push_back(power(i, 2));
 	}
-	cout << squareNums.size();
-	
-	for (int x = 1; x < 30; ++x)
-	{
-		for (int y = 1; y < 30; ++y)
-		{
-			int frt = power(2, x) + power(2, y) + 3;
-			int bk = x + y + x * y;
-			if(squareNums.empty() != true)
-			{
-				auto itr = squareNums.begin();
-				while(itr!=squareNums.end())
-				{
-					if ((*itr - frt) % bk == 0)
-					{
-						squareNums.erase(itr);
-						itr = squareNums.begin();
-						continue;
-					}
-					++itr;
-				}
+	cout << squareNums.size() << " ";
+	cout << "calculating......   ";
 
+	for (int k = 1; k < 6; k = k + 2)
+	{
+		for (int i = 1; i < 15; ++i)
+		{
+			for (int j = 1; j < 15; ++j)
+			{
+				int d = 1;
+				while ((i * j * d + 1) % k != 0)
+				{
+					++d;
+				}
+				unsigned int frt = power(2, i) + power(2, j) + power(2, k) + i * j + i * k + j * k + (i + j) * d + (i * j * d + 1) / k;
+				unsigned int bk = i * j + i * k + j * k;
+				if (squareNums.empty() != true)
+				{
+					auto itr = squareNums.begin();
+					while (itr != squareNums.end())
+					{
+						if (*itr - frt > 0 && (*itr - frt) % bk == 0)
+						{
+							squareNums.erase(itr);
+							itr = squareNums.begin();
+							continue;
+						}
+						++itr;
+					}
+				}
 			}
 		}
 	}
 
-	cout << " " << squareNums.size() << endl;
+	cout << squareNums.size() << endl;
 
 }
 
