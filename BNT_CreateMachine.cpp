@@ -43,7 +43,13 @@ void BNT_CreateMachine::AnswerToQuestion2()
 
 void BNT_CreateMachine::AnswerToQuestion3()
 {
-
+	for (const auto& n : BNTs)
+	{
+		if (n.A != 2 && n.B != 2 && n.C != 2)
+		{
+			printBNT(n);
+		}
+	}
 }
 
 void BNT_CreateMachine::AnswerToQuestion4()
@@ -87,6 +93,15 @@ void BNT_CreateMachine::AnswerToQuestion4()
 			break;
 		}
 	}
+
+	ofs << "Question 3: " << endl << endl;
+	for (const auto& n : BNTs)
+	{
+		if (n.A != 2 && n.B != 2 && n.C != 2)
+		{
+			writeBNT(n, ofs);
+		}
+	}
 }
 
 void BNT_CreateMachine::AnswerToQuestion5()
@@ -111,15 +126,54 @@ void BNT_CreateMachine::AnswerToQuestion5()
 	}
 }
 
+void BNT_CreateMachine::AnswerToQuestion6()
+{
+
+}
+
+void BNT_CreateMachine::AnswerToQuestion7(const int& min, const int& max)
+{
+	vector<BNT_frqny> data;
+	int lastBNT = 0;
+	int times = 0;
+	for (const auto& n : BNTs)
+	{
+		if (n.BNT >= min && n.BNT <= max)
+		{
+			if (n.BNT == lastBNT)
+			{
+				++times;
+			}
+			else
+			{
+				if (lastBNT != 0)
+				{
+					BNT_frqny tmp(lastBNT, times);
+					data.push_back(tmp);
+				}
+				lastBNT = n.BNT;
+				times = 1;
+			}
+		}
+	}
+	Tabulator tbltr(data);
+	tbltr.drawGram();
+}
+
+void BNT_CreateMachine::AnswerToQuestion8()
+{
+
+}
+
 void BNT_CreateMachine::createBNT()
 {
 	int limitLeft = 20;
 	int limitRight = 15;
-	for (int A = 1; A <= limitLeft; ++A)
+	for (int A = 2; A <= limitLeft; ++A)
 	{
 		for (int B = A; B <= limitLeft; ++B)
 		{
-			for (int C = B; C <= limitLeft; ++C)
+			for (int C = 2; C <= limitLeft; ++C)
 			{
 				for (int x = 3; x <= limitRight; ++x)
 				{
@@ -143,19 +197,19 @@ void BNT_CreateMachine::createBNT()
 		}
 	}
 
-	limitLeft = 100;
-	limitRight = 30;
-	for (int A = 20; A <= limitLeft; ++A)
+	/*limitLeft = 20;
+	limitRight = 100;
+	for (int A = 1; A <= limitLeft; ++A)
 	{
 		for (int B = A; B <= limitLeft; ++B)
 		{
 			for (int C = B; C <= limitLeft; ++C)
 			{
-				for (int x = 3; x <= limitRight; ++x)
+				for (int x = 16; x <= limitRight; ++x)
 				{
-					for (int y = 3; y <= limitRight; ++y)
+					for (int y = 16; y <= limitRight; ++y)
 					{
-						for (int z = 3; z <= limitRight; ++z)
+						for (int z = 16; z <= limitRight; ++z)
 						{
 							Int_large A1, B1, C1;
 							A1 = A;
@@ -171,7 +225,7 @@ void BNT_CreateMachine::createBNT()
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void BNT_CreateMachine::printBNTs()

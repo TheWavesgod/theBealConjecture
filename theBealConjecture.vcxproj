@@ -132,11 +132,13 @@
     <ClCompile Include="BNT_CreateMachine.cpp" />
     <ClCompile Include="Int_large.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tabulator.cpp" />
     <ClCompile Include="UserIF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BNT_CreateMachine.h" />
     <ClInclude Include="Int_large.h" />
+    <ClInclude Include="Tabulator.h" />
     <ClInclude Include="UserIF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

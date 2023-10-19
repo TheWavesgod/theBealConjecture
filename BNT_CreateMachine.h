@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Int_large.h"
+#include "Tabulator.h"
 
 #include <fstream>
 #include <cmath>
@@ -37,7 +38,7 @@ public:
 	void AnswerToQuestion4();
 	void AnswerToQuestion5();
 	void AnswerToQuestion6();
-	void AnswerToQuestion7();
+	void AnswerToQuestion7(const int& min, const int& max);
 	void AnswerToQuestion8();
 	
 public:

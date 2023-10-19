@@ -59,7 +59,7 @@ void UserIF::setTextColor(text_color color)
 	{
 	case WHITE:
 	{
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		break;
 	}
 	case RED:
@@ -107,6 +107,8 @@ int UserIF::handleInput(string& input)
 		return 8;
 	if (input.compare("9") == 0)
 		return 9;
+	if (input.compare("p") == 0)
+		return 11;
 	return 10;
 }
 
@@ -159,6 +161,11 @@ int UserIF::reactToInputMainMenu(const int& input)
 		initMainMenu();
 		break;
 	}
+	case 11:
+	{
+		BNTMachine->printBNTs();
+		break;
+	}
 	default:
 		return input;
 	}
@@ -182,6 +189,10 @@ void UserIF::answerQ2()
 
 void UserIF::answerQ3()
 {
+	setTextColor(BLUE);
+	cout << BCSystem << endl;
+	setTextColor(YELLOW);
+	BNTMachine->AnswerToQuestion3();
 }
 
 void UserIF::answerQ4()
@@ -208,6 +219,33 @@ void UserIF::answerQ6()
 
 void UserIF::answerQ7()
 {
+	int minimun;
+	int maximum;
+	setTextColor(BLUE);
+	cout << BCSystem;
+	setTextColor(WHITE);
+	cout << "Input minimum" << endl;
+	cout << endl;
+	setTextColor(RED);
+	cout << User;
+	setTextColor(WHITE);
+	cin >> minimun;
+	cout << endl;
+	setTextColor(BLUE);
+	cout << BCSystem;
+	setTextColor(WHITE);
+	cout << "Input maximum" << endl;
+	cout << endl;
+	setTextColor(RED);
+	cout << User;
+	setTextColor(WHITE);
+	cin >> maximum;
+	cout << endl;
+	setTextColor(BLUE);
+	cout << BCSystem;
+	setTextColor(YELLOW);
+	cout << endl;
+	BNTMachine->AnswerToQuestion7(minimun, maximum);
 }
 
 void UserIF::answerQ8()
