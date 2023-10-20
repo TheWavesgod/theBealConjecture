@@ -1,1 +1,2 @@
 D:\CppProject\theBealConjecture\x64\Release\theBealConjecture.exe
+C:\Users\c3036358\source\repos\theBealConjecture\x64\Release\theBealConjecture.exe

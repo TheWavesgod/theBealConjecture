@@ -134,7 +134,7 @@ void BNT_CreateMachine::AnswerToQuestion6()
 	cout << "A = 2^i, B = 2^j, C = 2^k, x = n/i, y = n/j, z = (n+1)/k" << endl;
 	cout << "So, we can express BNT as: 2^i + 2^j +2^k + n/i + n/j + (n+1)/k" << endl;
 	cout << "Since n must be divisible by both i and j, we take n as i * j * n, then, take n as zn+z+d, and BNT can be represented as: " << endl;
-	cout << "2^i + 2^j + 2^k + ij + ik + jk + (i + j)d + (ijd + 1)/z + (ij + ik + jk)n, n is a positive integer, d is a integer that can make (ijd + 1)/z a integer" << endl;
+	cout << "2^i + 2^j + 2^k + ij + ik + jk + (i + j)d + (ijd + 1)/k + (ij + ik + jk)n, n is a positive integer, d is a integer that can make (ijd + 1)/z a integer" << endl;
 	cout << "When i and j take values from 1 to 15, k must be odd, all square numbers can be represented by the formula above, which means they are all BNT" << endl;
 	cout << "I have stored square numbers from 1000 to 100000 in a vector, removed those that meet the formula, and below is the count of square numbers before and after removal:" << endl;
 
@@ -216,6 +216,7 @@ void BNT_CreateMachine::AnswerToQuestion8()
 	cout << "4^(3n+1) + 4^(3n+1) = 8^(2n+1)" << endl;
 	cout << "where BNT can be represented as 8n+19, n is a positive integer" << endl;
 	cout << "Therefore, in theory, as long as the value of n is sufficiently large, BNT can be arbitrarily large, making BNT equal to infinity.";
+	cout << "For example, take n = 10000000, BNT = 80000019 , A = 4, B = 4, C = 4, x = 30000001, y = 30000001, z = 20000001" << endl;
 	cout << endl;
 }
 
