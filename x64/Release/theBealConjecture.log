@@ -1,1 +1,18 @@
-﻿  theBealConjecture.vcxproj -> C:\Users\c3036358\source\repos\theBealConjecture\x64\Release\theBealConjecture.exe
+﻿  BNT_CreateMachine.cpp
+D:\CppProject\theBealConjecture\BNT_CreateMachine.cpp(191,13): warning C4018: “>=”: 有符号/无符号不匹配
+D:\CppProject\theBealConjecture\BNT_CreateMachine.cpp(191,29): warning C4018: “<=”: 有符号/无符号不匹配
+D:\CppProject\theBealConjecture\BNT_CreateMachine.cpp(338,10): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  Int_large.cpp
+D:\CppProject\theBealConjecture\Int_large.cpp(33,88): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  main.cpp
+  Tabulator.cpp
+D:\CppProject\theBealConjecture\Tabulator.cpp(25,15): warning C4018: “>”: 有符号/无符号不匹配
+D:\CppProject\theBealConjecture\Tabulator.cpp(30,39): warning C4267: “参数”: 从“size_t”转换到“const int”，可能丢失数据
+D:\CppProject\theBealConjecture\Tabulator.cpp(36,21): warning C4018: “<”: 有符号/无符号不匹配
+  UserIF.cpp
+  正在生成代码
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+D:\CppProject\theBealConjecture\UserIF.cpp(172): warning C4715: “UserIF::reactToInputMainMenu”: 不是所有的控件路径都返回值
+  All 552 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  theBealConjecture.vcxproj -> D:\CppProject\theBealConjecture\x64\Release\theBealConjecture.exe
